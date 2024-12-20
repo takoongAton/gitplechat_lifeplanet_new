@@ -18,8 +18,10 @@
 	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
     <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script> -->
 <style>
+* {box-sizing:border-box; margin:0; padding:0; list-style:none; outline:0;}
 body {padding:20px;}
 div  {padding-top:10px; margin-bottom:20px;}
+button {border:1px solid #444; padding:0.5em 1em; background-color:#fff; border-radius:4px;}
 </style>
 
 </head>
@@ -27,15 +29,33 @@ div  {padding-top:10px; margin-bottom:20px;}
     <button id="vibrateButton">진동 실행</button>
 
     <script>
-        // 버튼 클릭 이벤트 핸들러
-        document.getElementById('vibrateButton').addEventListener('click', () => {
-            // Vibration API를 지원하는지 확인
+        function triggerVibration() {
+            // Vibration API 사용
             if ('vibrate' in navigator) {
                 navigator.vibrate(1000); // 1초 동안 진동
+            } else if (window.navigator && window.navigator.userAgent.includes('iPhone')) {
+                // iOS의 대체 방법 (진동이 기본적으로 지원되지 않음)
+                triggerHapticFeedback();
             } else {
-                alert("이 기기는 Vibration API를 지원하지 않습니다.");
+                alert("이 기기는 진동 기능을 지원하지 않습니다.");
             }
-        });
+        }
+
+        function triggerHapticFeedback() {
+            // iOS에서 가능한 대체 진동 실행
+            try {
+                if (window.webkit && window.webkit.messageHandlers) {
+                    // Haptic feedback이 지원되는 경우 (예: 앱 내 JavaScript-네이티브 브릿지 사용)
+                    window.webkit.messageHandlers.triggerHaptic.postMessage({});
+                } else {
+                    alert("iOS에서 진동 지원이 제한됩니다.");
+                }
+            } catch (error) {
+                console.error("Haptic feedback 실행 중 오류:", error);
+            }
+        }
+
+        document.getElementById('vibrateButton').addEventListener('click', triggerVibration);
     </script>
 </body>
 </html>
