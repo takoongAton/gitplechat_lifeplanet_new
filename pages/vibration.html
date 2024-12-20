@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>gitplechat_lifeplanet</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!-- 파비콘 -->
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"> -->
+	<!-- <link rel="stylesheet" href="../css/gktplechat_lifeplanet.css"> -->
+    <!-- <link rel="stylesheet" href="https://devlifeplanet.enterprise.gitple.io/styles.a37ae2ce673b085575e7.css"> -->
+    
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script> -->
+<style>
+body {padding:20px;}
+div  {padding-top:10px; margin-bottom:20px;}
+</style>
+
+</head>
+<body>
+    <button id="vibrateButton">진동 실행</button>
+
+    <script>
+        // 버튼 클릭 이벤트 핸들러
+        document.getElementById('vibrateButton').addEventListener('click', () => {
+            // Vibration API를 지원하는지 확인
+            if ('vibrate' in navigator) {
+                navigator.vibrate(1000); // 1초 동안 진동
+            } else {
+                alert("이 기기는 Vibration API를 지원하지 않습니다.");
+            }
+        });
+    </script>
+</body>
+</html>
