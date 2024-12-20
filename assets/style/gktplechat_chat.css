@@ -1,0 +1,71 @@
+
+/* 상담고객 정보 레이아웃 */
+.chat_user_panel_wrap {display:flex; flex-direction:column; width:400px;}
+.chat_user_panel_wrap .chat_user_panel_header {height:45px;}
+.chat_user_panel_wrap .chat_user_panel_body {overflow-y:auto;}
+/* // 상담고객 정보 레이아웃 */
+
+/* 상담고객 정보 탭메뉴 */
+.nav-tabs_wrap {position:relative; padding:0 43px; background-color:#fff;}
+.nav-tabs_wrap::before {content:""; position:absolute; bottom:0; left:0; width:100%; border-bottom:1px solid #dee2e6;}
+.nav-tabs_wrap ul {display:block !important; margin:0; padding:0 !important; white-space:nowrap; overflow:hidden;}
+.nav-tabs_wrap ul li {display:inline-block;}
+.nav-tabs_wrap ul li a {display:inline-block; position:relative; height:43px; padding:16px 24px 8px; color:#343A40; font-size:16px; font-weight:bold; letter-spacing:-0.05em; text-decoration:none;}
+.nav-tabs_wrap ul li a.active {color:#4D91F9;}
+.nav-tabs_wrap ul li a.active span {color:inherit;}
+.nav-tabs_wrap ul li a.active::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:2px; background-color:#4D91F9;;}
+.nav-tabs_wrap ul li a span {font-weight:bold;}
+.nav-tabs_wrap button.btn_arrow {position:absolute; top:0; width:43px; height:43px; border:0; padding:0; border-style:solid; border-color:#ddd; background-color:#fff; color:#fff; outline:0;}
+.nav-tabs_wrap button.btn_arrow.prev {left:0; border-width:0 1px 1px 0;}
+.nav-tabs_wrap button.btn_arrow.next {right:0; border-width:0 0 1px 1px;}
+.nav-tabs_wrap button.btn_arrow img {width:24px; height:24px; line-height:1;}
+/* // 상담고객 정보 탭메뉴 */
+
+
+.user_data_box {display:flex; flex-direction:column; gap:10px; width:100%; padding:14px 18px;; border-bottom:1px solid #ddd;}
+
+/* 상담 고객 정보 타이틀 */
+.user_data_box .data_box_header {display:flex; justify-content:space-around;}
+.user_data_box .data_box_header div.tit {flex:1;}
+.user_data_box .data_box_header div.tit strong {color:#343A40; font-size:14px; line-height:20px; font-weight:700;}
+.user_data_box .data_box_header div.btn {}
+.user_data_box .data_box_header div.btn button.btn_toggle {position:relative; width:20px; min-width:20px; height:20px; background-color:#f7f7f7; border-radius:3px; overflow:hidden; color:transparent;}
+.user_data_box .data_box_header div.btn button.btn_toggle:hover {background-color:#f1f3f5;}
+.user_data_box .data_box_header div.btn button.btn_toggle::before {content:""; display:block; position:absolute; bottom:34%; left:50%; width:36%; height:36%; border:1.5px solid #000; border-color:transparent transparent #000 #000; transform:rotate(-45deg); transform-origin:0 100%;}
+.user_data_box .data_box_header div.btn button.btn_toggle.active {transform:rotate(180deg);}
+/* // 상담 고객 정보 타이틀 */
+
+/* 상담 고객 정보 테이블 기본형 */
+.data_list {display:flex; flex-direction:column; gap:6px 0; width:100%;}
+.data_list .data_item {display:flex; width:100%; gap:0 10px;}
+.data_list .data_item div.tit {min-width:140px; width:140px; max-width:140px; min-height:26px; color:#8f8f8f; font-size:14px; line-height:26px;}
+.data_list .data_item div.con {flex:1; min-height:26px; color:#414141; font-size:14px; line-height:26px; word-break:break-all;}
+.data_list .data_item div.con span.data {display:inline-block; border-bottom:1px dashed black; cursor:pointer;}
+.data_list .data_item div.user-data-key {min-width:140px; width:140px; max-width:140px; min-height:26px;}
+.data_list .data_item div.user-data-key span {color:#8f8f8f; font-size:14px; line-height:26px; word-break:break-all;}
+.data_list .data_item div.user-data-value {flex:1; min-height:26px; }
+.data_list .data_item div.user-data-value span {color:#414141; font-size:14px; line-height:26px; word-break:break-all;}
+.data_list .data_item div.user-data-value button {height:26px; padding:0 8px; border-radius:3px; border:1px solid #ddd; background-color:#f1f3f5;}
+.data_list .data_item div.user-data-value button span.txt {display:block; color:#343A40; font-size:12px; line-height:1em; font-weight:bold;}
+/* // 상담 고객 정보 테이블 기본형 */
+
+/* 상담 고객 정보 테이블 수정 시 */
+.inline-editor {display:flex; justify-content:space-between; align-items:center; gap:0 6px;}
+.inline-editor input[type="text"] {flex:1; width:100%; max-width:100%; height:26px; padding:0 10px; border:1px solid #ddd; border-radius:3px; color:#343A40; font-size:14px; line-height:26px;}
+.inline-editor input[type="text"]:focus {border-color:#ff6600;}
+.inline-editor .inline-editer_btns {display:flex; gap:0 6px;}
+.inline-editor .inline-editer_btns button {width:26px; height:26px; border-radius:3px; background-color:#ff6600; color:#fff;}
+.inline-editor .inline-editer_btns button span {display:block; color:#fff; font-size:10px; line-height:1em; white-space:nowrap;}
+/* // 상담 고객 정보 테이블 수정 시 */
+
+/* 최근 상담 이력  */
+.user-session-data_list {display:flex; flex-direction:column; width:100%; gap:6px 0;}
+.user-session-data_list .user-session-data_item {}
+.user-session-data_list .user-session-data_item button {display:flex; justify-content:space-between; align-items:flex-start; gap:0 8px; width:100%; /* transition:background-color 0.2s ease; */}
+.user-session-data_list .user-session-data_item button:hover {background-color:#f1f3f5;}
+.user-session-data_list .user-session-data_item button span {display:block; font-size:14px; line-height:26px;}
+.user-session-data_list .user-session-data_item button span.ico {display:inline-flex; align-items:center; height:26px;}
+.user-session-data_list .user-session-data_item button span.ico img {width:20px; height:20px;}
+.user-session-data_list .user-session-data_item button span.name {flex:1; text-align:left; color:#414141;}
+.user-session-data_list .user-session-data_item button span.date {white-space:nowrap; color:#8f8f8f;}
+/* // 최근 상담 이력  */
