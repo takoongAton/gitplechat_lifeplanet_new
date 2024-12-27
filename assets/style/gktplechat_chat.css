@@ -5,11 +5,15 @@
 .chat_user_panel_wrap .chat_user_panel_body {overflow-y:auto;}
 /* // 상담고객 정보 레이아웃 */
 
+/* webkit-scrollbar */
+/* .chat_user_panel_header ::-webkit-scrollbar{width:0.5em; height:0.5em;} */
+
 /* 상담고객 정보 탭메뉴 */
 .nav-tabs_wrap {position:relative; padding:0 43px; background-color:#fff;}
 .nav-tabs_wrap::before {content:""; position:absolute; bottom:0; left:0; width:100%; border-bottom:1px solid #dee2e6;}
 .nav-tabs_wrap ul {display:block !important; margin:0; padding:0 !important; white-space:nowrap; overflow:hidden;}
-.nav-tabs_wrap ul li {display:inline-block;}
+/* .nav-tabs_wrap ul:hover {display:flex; overflow-x:auto; white-space:nowrap; scroll-behavior:smooth;} */ /* 스크롤바가 필요한 경우 */
+.nav-tabs_wrap ul li {display:inline-block; flex: 0 0 auto;}
 .nav-tabs_wrap ul li a {display:inline-block; position:relative; height:43px; padding:16px 24px 8px; color:#343A40; font-size:16px; font-weight:bold; letter-spacing:-0.05em; text-decoration:none;}
 .nav-tabs_wrap ul li a.active {color:#4D91F9;}
 .nav-tabs_wrap ul li a.active span {color:inherit;}

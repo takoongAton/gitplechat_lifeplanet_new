@@ -83,20 +83,22 @@ html, body {height:100%;}
 
 /* 메인 메뉴 */
 .container_wrap .aside_wrap .al-sidebar-list {display:flex; flex-direction:column; padding:6px 0; gap:6px 0; flex-direction:column;}
-.container_wrap .aside_wrap .al-sidebar-list > li {}
-.container_wrap .aside_wrap .al-sidebar-list > li > a {display:inline-flex; justify-content:center; align-items:center; width:60px; height:48px; color:#fff; text-decoration:none; background-color:rgba(255,255,255,0.1);}
-.container_wrap .aside_wrap .al-sidebar-list > li > a:hover {color:#ff6600;}
-.container_wrap .aside_wrap .al-sidebar-list > li.active > a {background-color:#ff6600;}
-.container_wrap .aside_wrap .al-sidebar-list > li > a.active {}
-.container_wrap .aside_wrap .al-sidebar-list > li div.al-sidebar-sublist {display:none; z-index:0;}
-.container_wrap .aside_wrap .al-sidebar-list > li.active div.al-sidebar-sublist {display:block; position:absolute; top:0; left:60px; width:200px; height:100%; background-color: #fff;}
+/* .container_wrap .aside_wrap .al-sidebar-list::after {content:""; display:block; position:absolute; top:0; left:0; width:60px; height:100%; z-index:1;} */
+.container_wrap .aside_wrap .al-sidebar-list > li.al-sidebar-list-item {}
+.container_wrap .aside_wrap .al-sidebar-list > li.al-sidebar-list-item > a {display:inline-flex; justify-content:center; align-items:center; position:relative; width:60px; height:48px; border-radius:1px 0 0 1px; color:#fff; text-decoration:none; background-color:rgba(255,255,255,0.1); z-index:1;}
+.container_wrap .aside_wrap .al-sidebar-list > li.al-sidebar-list-item > a:hover {color:#ff6600; font-weight:bold;}
+.container_wrap .aside_wrap .al-sidebar-list > li.al-sidebar-list-item.active > a {background-color:#ff6600;}
+.container_wrap .aside_wrap .al-sidebar-list > li.al-sidebar-list-item.active > a:hover {color:#fff; font-weight:normal;}
+.container_wrap .aside_wrap .al-sidebar-list > li.al-sidebar-list-item div.al-sidebar-sublist {display:none; z-index:0;}
+.container_wrap .aside_wrap .al-sidebar-list > li.al-sidebar-list-item.active div.al-sidebar-sublist {box-shadow:0 0 4px rgba(0,0,0,0.16);}
+.container_wrap .aside_wrap .al-sidebar-list > li.al-sidebar-list-item.active div.al-sidebar-sublist.open {display:block; position:absolute; top:0; left:60px; width:200px; height:100%; background-color: #fff;}
 /* // 메인 메뉴 */
 
 
 
 /* 서브 메뉴 */
 .al-sidebar-sublist {}
-.al-sidebar-sublist .al-sidebar-sublist-title-container {display:flex; justify-content:space-between; padding:24px 24px;}
+.al-sidebar-sublist .al-sidebar-sublist-title-container {display:flex; justify-content:space-between; padding:20px 24px;}
 .al-sidebar-sublist .al-sidebar-sublist-title-container div.tit strong {display:block; flex:1; color:#343a40; font-size:25px; line-height:1.4em; white-space:nowrap;}
 .al-sidebar-sublist .al-sidebar-sublist-title-container button {white-space:nowrap;}
 

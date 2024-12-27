@@ -28,5 +28,5 @@ button:not(:disabled),
 
 /* webkit-scrollbar (컬러만 수정 가능 ) */
 /* ::-webkit-scrollbar:hover {} */
-::-webkit-scrollbar-thumb:hover {background-color:rgba(0,0,0,0.4); background-color:var(--gitple);}
+::-webkit-scrollbar-thumb:hover {background-color:rgba(0,0,0,0.4); background-color:var(--gitple); background-color:#50635c;}
 /* ::-webkit-scrollbar-track:hover {} */

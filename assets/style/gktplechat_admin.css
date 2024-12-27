@@ -74,8 +74,9 @@ div.select_list ul li span.txt {font-size:14px;}
 
 /* 태그 */
 .tag_list {display:flex; flex-wrap:wrap; gap:8px;}
-.tag_list div.tag_item {display:inline-flex; max-width:100%; gap:0; padding:0 6px 0 10px; background-color:var(--gitple); border-radius:100px; color:#fff;}
-.tag_list div.tag_item span.tag_txt {display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; padding-right:4px; font-size:12px; line-height:22px;}
+.tag_list div.tag_item {display:inline-flex; position:relative; max-width:100%; gap:0; padding:0 6px 0 10px; background-color:var(--gitple); border-radius:100px; color:#fff;}
+/* .tag_list div.tag_item:hover::before {content:""; display:block; position:absolute; top:0; right:0; bottom:0; left:0; background-color:rgba(0,0,0,0.06); transition:all 0.2s ease;} */
+.tag_list div.tag_item span.tag_txt {display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; position:relative; z-index:1;; overflow:hidden; padding-right:4px; font-size:12px; line-height:22px; text-shadow:0 0 1px rgba(0,0,0,0.3);}
 .tag_list div.tag_item button.tag_del {position:relative; width:22px; min-width:22px; height:22px; overflow:hidden; color:transparent}
 .tag_list div.tag_item button.tag_del::before,
 .tag_list div.tag_item button.tag_del::after {content:""; display:block; position:absolute; top:50%; left:50%; width:50%; height:1.5px; border-radius:1px; background-color:#fff;}
@@ -255,7 +256,7 @@ div.check_item input[type="checkbox"]:checked:disabled + span.checkmark::before 
 .dropdown-triger {}
 .dropdown-toggle {}
 
-.dropdown {position:absolute; top:100px; left:100px; border:1px solid #ddd; border-radius:4px; overflow:hidden;}
+.dropdown {display:none; position:absolute; top:100px; left:100px; border:1px solid #ddd; border-radius:4px; overflow:hidden;}
 .dropdown::before,
 .dropdown::after {content:""; display:block; position:absolute; width:calc(100% - 0.375em); height:0.5em; background-color:#fff; z-index:1;}
 .dropdown::before {top:0; /* background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); */}
