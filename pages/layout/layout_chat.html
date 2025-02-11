@@ -457,6 +457,9 @@
                                     </div>
                                     <!-- // chat_rooms_user -->
 
+                                    <div class="room-content">
+                                    </div>
+
                                     <div class="room-extra">
                                         <div>
                                             <div class="txt">
@@ -551,7 +554,9 @@
                             </div>
 
                             <div class="chst_section_content">
-                                <p class="txt">다른 상담사를 연결하려고 합니다.</p>
+                                <p class="txt">
+                                    <div class="tooltip" data-toggle="tooltip">다른 상담사를 연결하려고 합니다.</div>
+                                </p>
                             </div>
 
                             <div class="chat_session_time_wrap">
@@ -735,7 +740,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            chat_message_panel_body<br />
+                            
+                            
+                            chat_message_panel_body
+
+                            <br />
 <style>
 .message_test_wrap {display:flex; flex-direction:column; gap:1.25em 0; padding:1.25em; border-radius:4px; background-color:#ffeed3; box-shadow:1px 1px 2px rgba(0,0,0,0.2);}
 .message_test_wrap .tit_wrap {display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:4px; color:rgba(0,0,0,0.8);}
@@ -1231,48 +1240,93 @@
 <script>
 /* 상담자 정보 탭메뉴 테스트 */
 document.addEventListener("DOMContentLoaded", function () {
-    const prevButton = document.querySelector('.btn_arrow.prev');
-    const nextButton = document.querySelector('.btn_arrow.next');
-    const tabs = document.querySelectorAll('.nav-tabs_wrap ul li a');
-    const tabList = document.querySelector('.nav-tabs_wrap ul');
 
-    // Function to scroll the tab list horizontally
-    function scrollTabList(amount) {
-        tabList.scrollBy({ left: amount, behavior: "smooth" });
-    }
+    let chat_user_panel_header = document.querySelector(".chat_user_panel_header");
+    if(chat_user_panel_header) {
+        const prevButton = document.querySelector('.btn_arrow.prev');
+        const nextButton = document.querySelector('.btn_arrow.next');
+        const tabs = document.querySelectorAll('.nav-tabs_wrap ul li a');
+        const tabList = document.querySelector('.nav-tabs_wrap ul');
 
-    // Function to scroll to the active tab
-    function scrollToActiveTab(tab) {
-        const tabRect = tab.getBoundingClientRect();
-        const containerRect = tabList.getBoundingClientRect();
-
-        if (tabRect.left < containerRect.left || tabRect.right > containerRect.right) {
-            tab.scrollIntoView({ behavior: "smooth", inline: "center" });
+        // Function to scroll the tab list horizontally
+        function scrollTabList(amount) {
+            tabList.scrollBy({ left: amount, behavior: "smooth" });
         }
-    }
 
-    // Next button click event
-    nextButton.addEventListener('click', function () {
-        scrollTabList(150); // Adjust the scroll amount as needed
-    });
+        // Function to scroll to the active tab
+        function scrollToActiveTab(tab) {
+            const tabRect = tab.getBoundingClientRect();
+            const containerRect = tabList.getBoundingClientRect();
 
-    // Prev button click event
-    prevButton.addEventListener('click', function () {
-        scrollTabList(-150); // Adjust the scroll amount as needed
-    });
+            if (tabRect.left < containerRect.left || tabRect.right > containerRect.right) {
+                tab.scrollIntoView({ behavior: "smooth", inline: "center" });
+            }
+        }
 
-    // Each tab click event
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            scrollToActiveTab(tab);
+        // Next button click event
+        nextButton.addEventListener('click', function () {
+            scrollTabList(150); // Adjust the scroll amount as needed
         });
-    });
+
+        // Prev button click event
+        prevButton.addEventListener('click', function () {
+            scrollTabList(-150); // Adjust the scroll amount as needed
+        });
+
+        // Each tab click event
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                scrollToActiveTab(tab);
+            });
+        });
+    }
+    /* // 상담자 정보 탭메뉴 테스트 */
+
+    /* 태그 아이템 삭제 */
+    let tagItmes = document.querySelectorAll(".tag_item");
+    if(tagItmes.length > 0) {
+        tagItmes.forEach(function(item){
+            let btnDel = item.querySelector(".tag_del");
+            if(btnDel) {
+                btnDel.addEventListener("click", function(){
+                    item.remove();
+                })
+            }
+        })
+    }
+    /* 태그 아이템 삭제 */
+    
+
+
+    /* 툴팁 열고 닫기 */
+    let aaa = document.querySelector('[data-toggle="tooltip"]');
+
+    aaa.addEventListener("mouseenter", function(event){
+        console.log(event);
+        console.log("mouseenter");
+
+        // setTimeout(() => {
+        // event.target.style.color = "#ff6600";
+        // event.target.classList.add("active")
+        // }, 500);
+
+    }, false)
+
+
+    // aaa.addEventListener("mouseleave", function(){
+    //     console.log("mouseleave")
+    //     alert("mouseleave")
+    // })
+    /* 툴팁 열고 닫기 */
+
+
+
 });
-/* // 상담자 정보 탭메뉴 테스트 */
+
 </script>
 
 
